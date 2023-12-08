@@ -37,7 +37,17 @@ namespace SumaAppMvvm.ViewModels
             Dato1 = "";
             Dato2 = "";
             Respuesta = "";
+            MostrarNotificacion("Datos borrados");
         }
+
+               private void MostrarNotificacion(string mensaje)
+       {
+
+           MainThread.BeginInvokeOnMainThread(async () =>
+           {
+               await App.Current.MainPage.DisplayAlert("Notificación", mensaje, "OK");
+           });
+       }
 
     }
 }
