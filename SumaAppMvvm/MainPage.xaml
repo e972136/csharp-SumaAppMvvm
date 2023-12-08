@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:SumaAppMvvm.ViewModels"
+             x:Class="SumaAppMvvm.MainPage">
+
+
+    <ContentPage.BindingContext>
+        <viewmodel:MainViewModel/>
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+
+            <Entry x:Name="Dato1"
+              Text="{Binding Dato1}"
+           Placeholder="Numero 1"
+           Keyboard="Numeric"
+       />
+
+            <Entry x:Name="Dato2"
+              Text="{Binding Dato2}"
+           Placeholder="Enter text"
+           Keyboard="Numeric"
+       />
+
+            <Entry x:Name="Respuesta"
+              Text="{Binding Respuesta}"
+           Placeholder="Enter text"
+           Keyboard="Numeric"
+           IsReadOnly="True"
+       />
+
+
+            <Button
+           x:Name="CounterBtn"                
+           SemanticProperties.Hint="Counts the number of times you click"                
+           Text="Sumar"
+           Command="{Binding SumarCommand}"
+           HorizontalOptions="Fill" />
+
+            <Button
+           x:Name="ClearBtn"                
+           SemanticProperties.Hint="Counts the number of times you click"                
+           Text="Limpiar Datos"
+           Command="{Binding LimpiarDatosCommand}"
+           HorizontalOptions="Fill" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
